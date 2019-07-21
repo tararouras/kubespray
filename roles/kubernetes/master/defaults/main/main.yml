@@ -142,7 +142,7 @@ apiserver_custom_flags: []
 # List of the preferred NodeAddressTypes to use for kubelet connections.
 kubelet_preferred_address_types: 'InternalDNS,InternalIP,Hostname,ExternalDNS,ExternalIP'
 
-controller_mgr_custom_flags: []
+controller_mgr_custom_flags: ['horizontal-pod-autoscaler-cpu-initialization-period: 15s', 'horizontal-pod-autoscaler-downscale-stabilization: 15s', 'horizontal-pod-autoscaler-initial-readiness-delay: 15s']
 
 scheduler_custom_flags: []
 
