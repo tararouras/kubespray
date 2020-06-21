@@ -232,6 +232,13 @@ apiServer:
   timeoutForControlPlane: 5m0s
 controllerManager:
   extraArgs:
+{% if controller_mgr_custom_flags is string %}
+    {{ controller_mgr_custom_flags }}
+{% else %}
+{% for flag in controller_mgr_custom_flags %}
+    {{ flag }}
+{% endfor %}
+{% endif %}
     node-monitor-grace-period: {{ kube_controller_node_monitor_grace_period }}
     node-monitor-period: {{ kube_controller_node_monitor_period }}
     pod-eviction-timeout: {{ kube_controller_pod_eviction_timeout }}
